@@ -9,17 +9,17 @@ body:
     validations:
       required: true
   - type: dropdown
-    id: type
+    id: color
     attributes:
-      label: Method
-      description: Set the bionic method
+      label: Color
+      description: Set the color for fixations
       options:
-        - Bold
-        - LaTeX
-        - Italic
-        - Strikethrough
-        - Superscript
-        - Subscript
+        - Gray
+        - Light Gray
+        - Dark Gray
+        - Red
+        - Yellow
+        - Green
       default: 1
   - type: dropdown
     id: fixation
