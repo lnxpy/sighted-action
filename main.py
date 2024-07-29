@@ -8,6 +8,14 @@ from sighted.language import PoS
 
 workflow = PyAction()
 
+types = {
+    "Bold": ["**", "**"],
+    "Italic": ["*", "*"],
+    "Strikethrough": ["~~", "~~"],
+    "Superscript": ["<sup>", "</sup>"],
+    "Subscript": ["<sub>", "</sub>"],
+}
+
 
 @workflow.action()
 def my_action(github_token: str, repository: str, issue_number: int) -> None:
@@ -23,6 +31,10 @@ def my_action(github_token: str, repository: str, issue_number: int) -> None:
         ignore_pos=[PoS.PUNCT],
     )
 
-    transformed_text = language.transform(template=Template(" **$fix**$unfix"))
+    symbol = types[user_input["Method"]]
+
+    transformed_text = language.transform(
+        template=Template(f" {symbol[0]}$fix{symbol[1]}$unfix")
+    )
 
     workflow.write({"bionic_text": "".join(list(transformed_text))})
