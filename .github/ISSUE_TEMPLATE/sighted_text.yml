@@ -21,8 +21,6 @@ body:
         - 4
         - 5
       default: 1
-    validations:
-      required: true
   - type: dropdown
     id: saccade
     attributes:
@@ -35,5 +33,3 @@ body:
         - 4
         - 5
       default: 0
-    validations:
-      required: true
