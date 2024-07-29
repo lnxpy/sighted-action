@@ -8,13 +8,13 @@ from sighted.language import PoS
 
 workflow = PyAction()
 
-types = {
-    "Bold": ["**", "**"],
-    "LaTeX": ["$`\color{gray}", "`$"],
-    "Italic": ["*", "*"],
-    "Strikethrough": ["~~", "~~"],
-    "Superscript": ["<sup>", "</sup>"],
-    "Subscript": ["<sub>", "</sub>"],
+COLORS = {
+    "Gray": "{gray}",
+    "Light Gray": "{lightgray}",
+    "Dark Gray": "{lightgray}",
+    "Red": "{red}",
+    "Yellow": "{yellow}",
+    "Green": "{green}",
 }
 
 
@@ -32,10 +32,11 @@ def my_action(github_token: str, repository: str, issue_number: int) -> None:
         ignore_pos=[PoS.PUNCT],
     )
 
-    symbol = types[user_input["Method"]]
+    color = COLORS[user_input["Color"]]
+    prefix, postfix = f"$`\color{color}", "`$"
 
     transformed_text = language.transform(
-        template=Template(f" $`$fix`$${symbol[0]}$unfix{symbol[1]}")
+        template=Template(f" $`$fix`$${prefix}$unfix{postfix}")
     )
 
     workflow.write({"bionic_text": "".join(list(transformed_text))})
