@@ -1,5 +1,5 @@
 name: Sighted Text
-about: Using Sighted to convert your input into Markdown bionic text
+description: Using Sighted to convert your input into Markdown bionic text
 title: "Sighted: Bionic Text"
 body:
   - type: textarea
