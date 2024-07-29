@@ -1,0 +1,30 @@
+name: Sighted Action
+description: Turning your issue content into bionic text
+author: Sadra Yahyapour
+
+branding:
+  icon: check
+  color: blue
+
+runs:
+  using: docker
+  image: Dockerfile
+
+inputs:
+  github_token:
+    description: The GitHub auth token
+    default: ${{ github.token }}
+    required: true
+
+  repository:
+    description: The repository name in the form of "<owner>/<repo>"
+    default: ${{ github.repository }}
+    required: true
+
+  issue_number:
+    description: The id of the issue
+    required: true
+
+outputs:
+  bionic_text:
+    description: The converted bionic text
