@@ -9,17 +9,17 @@ body:
     validations:
       required: true
   - type: dropdown
-      id: type
-      attributes:
-        label: Method
-        description: Set the fixation
-        options:
-          - Bold
-          - Italic
-          - Strikethrough
-          - Superscript
-          - Subscript
-        default: 0
+    id: type
+    attributes:
+      label: Method
+      description: Set the fixation
+      options:
+        - Bold
+        - Italic
+        - Strikethrough
+        - Superscript
+        - Subscript
+      default: 0
   - type: dropdown
     id: fixation
     attributes:
