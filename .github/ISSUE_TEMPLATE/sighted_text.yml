@@ -12,7 +12,7 @@ body:
     id: type
     attributes:
       label: Method
-      description: Set the fixation
+      description: Set the bionic method
       options:
         - Bold
         - Italic
