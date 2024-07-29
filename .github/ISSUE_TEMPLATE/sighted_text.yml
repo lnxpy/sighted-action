@@ -8,6 +8,18 @@ body:
       description: Write or paste your text here
     validations:
       required: true
+- type: dropdown
+    id: type
+    attributes:
+      label: Method
+      description: Set the fixation
+      options:
+        - Bold
+        - Italic
+        - Strikethrough
+        - Superscript
+        - Subscript
+      default: 0
   - type: dropdown
     id: fixation
     attributes:
