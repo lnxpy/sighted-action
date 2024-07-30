@@ -11,13 +11,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      
-      - uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
 
       - name: Create processing comment
         uses: peter-evans/create-or-update-comment@v4
@@ -31,6 +24,13 @@ jobs:
         id: sighted
         with:
           issue_number: ${{ github.event.issue.number }}
+
+      - uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
 
       - name: Update comment
         uses: peter-evans/create-or-update-comment@v4
